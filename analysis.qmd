@@ -2,5 +2,26 @@
 title: "Two-Parameters"
 author: "Jack Xu"
 format: html
+execute: 
+  echo: false
 ---
 
+```{r}
+#| message: false
+library(tidyverse)
+library(primer.data)
+```
+
+
+```{r}
+set.seed(10)
+
+x <- nhanes |>
+  filter(age >= 18 & age <= 27) |>
+  select(height, sex) |>
+  drop_na() |>
+  slice_sample(n = 50) 
+```
+
+## Summary
+Males and females can have different average heights. The data is from the National Health and Nutrition Examination Survey (NHANES), and this project shows the average height of male and female USMC recruits.
